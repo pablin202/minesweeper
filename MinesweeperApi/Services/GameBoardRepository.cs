@@ -121,5 +121,7 @@ namespace MinesweeperApi.Services
       }
     }
 
+    public List<GameBoard> GetIncompleteGames() => _dbContext.GameBoards.Where(x => x.Status == GameStatus.InProgress).ToList();
+
   }
 }

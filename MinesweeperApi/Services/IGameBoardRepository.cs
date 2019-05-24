@@ -13,5 +13,6 @@ namespace MinesweeperApi.Services
     GameBoard GetGameBoardByIdWithPanels(int id);
     GameBoard RevealPanel(int boardId, int x, int y);
     GameBoard FlagPanel(int boardId, int x, int y);
+    List<GameBoard> GetIncompleteGames();
   }
 }

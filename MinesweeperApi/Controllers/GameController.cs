@@ -62,5 +62,40 @@ namespace MinesweeperApi.Controllers
         throw;
       }
     }
+
+    [HttpGet("incompletegames")]
+    public ActionResult<List<GameBoard>> GetIncompleteGames()
+    {
+      try
+      {
+        return _gameBoardRepository.GetIncompleteGames();
+      }
+      catch (Exception)
+      {
+        throw;
+      }
+    }
+
+    [HttpGet("onresume/{id}")]
+    public ActionResult<GameBoard> OnResumeGame(int id)
+    {
+      try
+      {
+        var game= _gameBoardRepository.GetGameBoardByIdWithPanels(id);
+
+        if (game ==null)
+          throw new Exception("The game doesn´t exist");
+
+        if (game.Status != GameStatus.InProgress)
+          throw new Exception("The game is finalized.");
+
+        return game;
+      }
+      catch (Exception)
+      {
+        throw;
+      }
+    }
+
   }
 }
