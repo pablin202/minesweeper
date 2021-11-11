@@ -8,7 +8,7 @@ This API implements Swagger to show a description for API
 
 Endpoint -> '/swagger'
 
-### Api descriptions enpoint
+### Api description endpoints
 
 #### Start Game
 
